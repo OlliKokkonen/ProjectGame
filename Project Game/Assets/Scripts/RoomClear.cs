@@ -11,7 +11,7 @@ public class RoomClear : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(GameObject.FindGameObjectsWithTag("Enemy").Length);
+        //print(GameObject.FindGameObjectsWithTag("Enemy").Length);
 
         if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
         {
@@ -23,8 +23,10 @@ public class RoomClear : MonoBehaviour
     {
         while(NoDoors == false)
         {
-            Instantiate(EasierDoor, new Vector3(2.0f, 4f, 0), Quaternion.identity);
-            Instantiate(HarderDoor, new Vector3(4.0f, 4f, 0), Quaternion.identity);
+            Instantiate(EasierDoor, new Vector3(1.0f, 4f, 0), Quaternion.identity);
+            Instantiate(HarderDoor, new Vector3(5.0f, 4f, 0), Quaternion.identity);
+
+            Debug.Log("Room Cleared!");
 
             NoDoors = true;
         }
