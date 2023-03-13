@@ -8,6 +8,8 @@ public class Bullet : MonoBehaviour
 
     public int destroyTime = 5;
 
+    public bool extraDamage = false;
+
     void Update()
     {
         Destroy(gameObject, destroyTime);
@@ -27,7 +29,15 @@ public class Bullet : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            other.gameObject.GetComponent<EnemyHealth>().TakeDamage(20);
+            if (extraDamage == true)
+            {
+                other.gameObject.GetComponent<EnemyHealth>().TakeDamage(20);
+            }
+
+            if (extraDamage == false)
+            {
+                other.gameObject.GetComponent<EnemyHealth>().TakeDamage(5);
+            }
 
             Destroy(gameObject);
         }

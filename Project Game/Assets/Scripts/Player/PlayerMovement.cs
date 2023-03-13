@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 mousePos;
 
     public float activeMoveSpeed;
-    public float dashSpeed = 10f;
+    public float dashSpeed;
 
     public float dashLength = .5f, dashCooldown = 1f;
 
@@ -32,6 +32,8 @@ public class PlayerMovement : MonoBehaviour
         movement.y = Input.GetAxisRaw("Vertical");
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+
+        dashSpeed = activeMoveSpeed * 2f;
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
