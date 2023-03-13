@@ -1445,7 +1445,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8761005526843640913}
   - component: {fileID: 784736010434104829}
-  - component: {fileID: 5177410685995213091}
   - component: {fileID: 8573255227169537766}
   m_Layer: 5
   m_Name: DLF
@@ -1482,20 +1481,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3529870577526300114}
   m_CullTransparentMesh: 1
---- !u!114 &5177410685995213091
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3529870577526300114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2119971e146c64f4f8d8be2f4570c2dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  difficultyLevelFactor: 5
-  dlfText: {fileID: 8573255227169537766}
 --- !u!114 &8573255227169537766
 MonoBehaviour:
   m_ObjectHideFlags: 0
