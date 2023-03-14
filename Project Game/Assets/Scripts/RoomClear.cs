@@ -23,8 +23,8 @@ public class RoomClear : MonoBehaviour
     {
         while(NoDoors == false)
         {
-            Instantiate(EasierDoor, new Vector3(1.0f, 4f, 0), Quaternion.identity);
-            Instantiate(HarderDoor, new Vector3(5.0f, 4f, 0), Quaternion.identity);
+            Instantiate(EasierDoor, new Vector3(-2.0f, 4f, 0), Quaternion.identity);
+            Instantiate(HarderDoor, new Vector3(2.0f, 4f, 0), Quaternion.identity);
 
             Debug.Log("Room Cleared!");
 
