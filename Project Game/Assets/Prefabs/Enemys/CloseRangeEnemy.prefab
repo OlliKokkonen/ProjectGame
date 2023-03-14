@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1480075271865409208}
   - component: {fileID: 2492139777532708619}
   - component: {fileID: 6234933771041240896}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5498981631757451796}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BulletPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 9173176445894357169}
   - component: {fileID: 5311662107080706571}
   - component: {fileID: 103422204150694064}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CloseRangeEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ MonoBehaviour:
   radius: 0.5
   height: 2
   canMove: 1
-  maxSpeed: 3
+  maxSpeed: 4
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2

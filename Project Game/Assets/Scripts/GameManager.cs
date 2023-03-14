@@ -1,55 +1,23 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    bool gameHasEnded = false;
 
-    public static GameManager Instance;
-
-    public GameState State;
-
-    public static event Action<GameState> OnGameStateChanged;
-
-    void Awake()
+    public float restartDelay = 1f;
+    public void EndGame()
     {
-        Instance = this;
-    }
-
-    void Start()
-    {
-        UpdateGameState(GameState.Combat);
-    }
-
-
-    // Update is called once per frame
-    public void UpdateGameState(GameState newState)
-    {
-        State = newState;
-
-        switch (newState)
+        if (gameHasEnded == false)
         {
-            case GameState.Combat:
-                break;
-            case GameState.RoomClear:
-                break;
-            case GameState.Lose:
-                break;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
-
+            gameHasEnded = true;
+            Debug.Log("Game Over");
+            Invoke("Restart", restartDelay); 
         }
-
-        OnGameStateChanged?.Invoke(newState);
-
     }
-}
 
-public enum GameState
-{
-    //For different states e.g Win, lose, etc
-    Combat,
-    RoomClear,
-    Lose,
+    void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }
