@@ -40,4 +40,18 @@ public class PlayerHealth : MonoBehaviour
             FindObjectOfType<GameManager>().EndGame();
         }
     }
+
+    public void GainHealth(int gainedhealth)
+    {
+        currentHealth += gainedhealth;
+
+        if (currentHealth >= maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+
+        healthBar.SetHealth(currentHealth);
+
+
+    }
 }
