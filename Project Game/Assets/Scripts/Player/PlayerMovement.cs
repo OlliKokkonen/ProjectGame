@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
 
     public Rigidbody2D rb;
     public Camera cam;
+    public Animator animator;
 
     Vector2 movement;
     Vector2 mousePos;
@@ -20,9 +21,18 @@ public class PlayerMovement : MonoBehaviour
     private float dashCounter;
     private float dashCoolCounter;
 
+    private float MovingDown = 0f;
+    private float MovingUp = 0f;
+    private float MovingLeft = 0f;
+    private float MovingRight = 0f;
+
+    SpriteRenderer spi;
+
     void Start()
     {
         activeMoveSpeed = moveSpeed;
+
+        spi = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -30,6 +40,11 @@ public class PlayerMovement : MonoBehaviour
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
+
+        animator.SetFloat("SpeedDown", Mathf.Abs(MovingDown));
+        animator.SetFloat("SpeedUp", Mathf.Abs(MovingUp));
+        animator.SetFloat("SpeedLeft", Mathf.Abs(MovingLeft));
+        animator.SetFloat("SpeedRight", Mathf.Abs(MovingRight));
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
@@ -58,6 +73,48 @@ public class PlayerMovement : MonoBehaviour
         if (dashCoolCounter > 0)
         {
             dashCoolCounter -= Time.deltaTime;
+        }
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            MovingUp = 1f;
+        }
+
+        if (Input.GetKeyUp(KeyCode.W))
+        {
+            MovingUp = 0f;
+        }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            MovingDown = 1f;
+        }
+
+        if (Input.GetKeyUp(KeyCode.S))
+        {
+            MovingDown = 0f;
+        }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            spi.flipX = false;
+            MovingLeft = 1f;
+        }
+
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            MovingLeft = 0f;
+        }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            spi.flipX = true;
+            MovingRight = 1f;
+        }
+
+        if (Input.GetKeyUp(KeyCode.D))
+        {
+            MovingRight = 0f;
         }
     }
 
