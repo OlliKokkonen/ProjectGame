@@ -6,6 +6,9 @@ public class EnemyHealth : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
+    public bool isDead = false;
+
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +31,9 @@ public class EnemyHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            Destroy(gameObject);
+            isDead = true;
+            animator.SetBool("IsDead", isDead);
+            Destroy(gameObject, 0.6f);
         }
     }
 }
