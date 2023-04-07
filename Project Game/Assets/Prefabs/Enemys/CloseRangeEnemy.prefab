@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 1480075271865409208}
   - component: {fileID: 2492139777532708619}
   - component: {fileID: 6234933771041240896}
+  - component: {fileID: 855388752}
   m_Layer: 6
-  m_Name: Square
+  m_Name: Square(M)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5583602694805319051}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9173176445894357171}
@@ -74,8 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0.5539919, b: 0, a: 1}
+  m_Sprite: {fileID: 1551858216, guid: 5da2b5a7d6137a14d9a0e2731b7a4090, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -111,6 +112,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &855388752
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5583602694805319051}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7d46c041a5f8ff245b68be1b86c32336, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7994175417234407124
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,7 +285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  target: {fileID: 6463841449323241920, guid: 4195887030a4ac0469cebf309bbb2f8b, type: 3}
+  target: {fileID: 0}
 --- !u!58 &9173176445894357169
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -295,6 +316,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
+  isDead: 0
+  animator: {fileID: 855388752}
 --- !u!114 &103422204150694064
 MonoBehaviour:
   m_ObjectHideFlags: 0
