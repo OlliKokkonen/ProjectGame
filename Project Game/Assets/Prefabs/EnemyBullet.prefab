@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 9
+  hitEffect: {fileID: 2455880272018827802, guid: 96f19f70246255142adebca2ac93f7cf, type: 3}
 --- !u!61 &7056236331815178412
 BoxCollider2D:
   m_ObjectHideFlags: 0

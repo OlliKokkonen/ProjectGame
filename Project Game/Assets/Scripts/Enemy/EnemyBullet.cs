@@ -9,6 +9,8 @@ public class EnemyBullet : MonoBehaviour
     public float force;
     private float timer;
 
+    public GameObject hitEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +41,7 @@ public class EnemyBullet : MonoBehaviour
         {
             other.gameObject.GetComponent<PlayerHealth>().TakeDamage(20);
 
+            Instantiate(hitEffect, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }

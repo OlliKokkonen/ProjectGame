@@ -39,6 +39,7 @@ public class Bullet : MonoBehaviour
                 other.gameObject.GetComponent<EnemyHealth>().TakeDamage(5);
             }
 
+            Instantiate(hitEffect, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }
