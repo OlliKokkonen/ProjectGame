@@ -7,7 +7,10 @@ public class PlayerHealth : MonoBehaviour
 
     public int maxHealth = 100;
     public int currentHealth;
+    public bool isHit = false;
     public bool isDead = false;
+
+    public float duration = 2f;
 
     public HealthBar healthBar;
 
@@ -45,6 +48,9 @@ public class PlayerHealth : MonoBehaviour
             Destroy(gameObject, 3);
             FindObjectOfType<GameManager>().EndGame();
         }
+
+        StartCoroutine(HitEffect());
+
     }
 
     public void GainHealth(int gainedhealth)
@@ -59,5 +65,16 @@ public class PlayerHealth : MonoBehaviour
         healthBar.SetHealth(currentHealth);
 
 
+    }
+
+    IEnumerator HitEffect()
+    {
+        isHit = true;
+        animator.SetBool("IsHit", isHit);
+
+        yield return new WaitForSeconds(duration);
+
+        isHit = false;
+        animator.SetBool("IsHit", isHit);
     }
 }
