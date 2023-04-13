@@ -8,6 +8,8 @@ public class PauseMenu : MonoBehaviour
     public static bool GameIsPaused = false;
 
     public GameObject pauseMenuUI;
+
+    PlayerHealth resetHealth;
   
 
     // Update is called once per frame
@@ -43,6 +45,8 @@ public class PauseMenu : MonoBehaviour
     public void LoadMenu()
     {
         Time.timeScale = 1f;
+        resetHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+        resetHealth.Reset();
         SceneManager.LoadScene("Menu");
     }
 

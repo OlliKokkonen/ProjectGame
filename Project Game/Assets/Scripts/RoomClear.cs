@@ -8,6 +8,8 @@ public class RoomClear : MonoBehaviour
     public GameObject HarderDoor;
     public bool NoDoors = false;
 
+    //public PlayerHealth levelClear;
+
     // Update is called once per frame
     void Update()
     {
@@ -30,5 +32,7 @@ public class RoomClear : MonoBehaviour
 
             NoDoors = true;
         }
+
+        //levelClear.firstLevelCleared = true;
     }
 }

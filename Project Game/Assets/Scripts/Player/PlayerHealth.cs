@@ -7,9 +7,13 @@ public class PlayerHealth : MonoBehaviour
 
     public int maxHealth = 100;
     public int currentHealth;
+    public static int remainingHealth;
     public bool isHit = false;
     public bool isDead = false;
 
+    public static bool firstLevelCleared = false;
+
+    public float invicibilityFrames;
     public float duration = 2f;
 
     public HealthBar healthBar;
@@ -20,8 +24,17 @@ public class PlayerHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        if (firstLevelCleared == false)
+        {
+            currentHealth = maxHealth;
+            healthBar.SetMaxHealth(maxHealth);
+        }
+
+        if (firstLevelCleared == true)
+        {
+            currentHealth = remainingHealth;
+            healthBar.SetHealth(currentHealth);
+        }
     }
 
     // Update is called once per frame
@@ -32,25 +45,40 @@ public class PlayerHealth : MonoBehaviour
             TakeDamage(20);
         }
 
+        if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+        {
+            remainingHealth = currentHealth;
+            firstLevelCleared = true;
+        }
+
+        if (invicibilityFrames >= 0)
+        {
+            invicibilityFrames -= Time.deltaTime;
+        }
+
     }
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-
-        healthBar.SetHealth(currentHealth);
-
-        if (currentHealth <= 0)
+        if (invicibilityFrames <= 0)
         {
-            movement.activeMoveSpeed = 0f;
-            isDead = true;
-            animator.SetBool("IsDead", isDead);
-            Destroy(gameObject, 3);
-            FindObjectOfType<GameManager>().EndGame();
+            currentHealth -= damage;
+
+            healthBar.SetHealth(currentHealth);
+
+            if (currentHealth <= 0)
+            {
+                movement.activeMoveSpeed = 0f;
+                firstLevelCleared = false;
+                isDead = true;
+                animator.SetBool("IsDead", isDead);
+                Destroy(gameObject, 3);
+                FindObjectOfType<GameManager>().EndGame();
+            }
+
+            StartCoroutine(HitEffect());
+            invicibilityFrames = 2f;
         }
-
-        StartCoroutine(HitEffect());
-
     }
 
     public void GainHealth(int gainedhealth)
@@ -76,5 +104,11 @@ public class PlayerHealth : MonoBehaviour
 
         isHit = false;
         animator.SetBool("IsHit", isHit);
+    }
+
+    public void Reset()
+    {
+        Debug.Log("Reset Function Called");
+        firstLevelCleared = false;
     }
 }

@@ -5,8 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    //public PlayerHealth start;
+
     public void PlayGame()
     {
+        //start.firstLevel = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 5);
     }
 
