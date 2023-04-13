@@ -72,6 +72,9 @@ public class PlayerHealth : MonoBehaviour
                 firstLevelCleared = false;
                 isDead = true;
                 animator.SetBool("IsDead", isDead);
+
+                FindObjectOfType<AudioManager>().Play("Player Death");
+
                 Destroy(gameObject, 3);
                 FindObjectOfType<GameManager>().EndGame();
             }
