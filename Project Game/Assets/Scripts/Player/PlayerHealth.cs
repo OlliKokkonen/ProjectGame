@@ -73,7 +73,7 @@ public class PlayerHealth : MonoBehaviour
                 isDead = true;
                 animator.SetBool("IsDead", isDead);
 
-                FindObjectOfType<AudioManager>().Play("Player Death");
+                //FindObjectOfType<AudioManager>().Play("Player Death");
 
                 Destroy(gameObject, 3);
                 FindObjectOfType<GameManager>().EndGame();
