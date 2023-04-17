@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2492139777532708619}
   - component: {fileID: 6234933771041240896}
   - component: {fileID: 855388752}
+  - component: {fileID: 3790743346855316972}
   m_Layer: 6
   m_Name: Square(M)
   m_TagString: Enemy
@@ -132,6 +133,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3790743346855316972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5583602694805319051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1ec949ba6c203d44b7d3aadf1ad9ea7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aiPath: {fileID: 9173176445894357173}
 --- !u!1 &7994175417234407124
 GameObject:
   m_ObjectHideFlags: 0

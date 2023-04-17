@@ -45,7 +45,7 @@ public class Bullet : MonoBehaviour
 
         if (other.gameObject.CompareTag("Obstacle"))
         {
-            Instantiate(hitEffect, transform.position, transform.rotation);
+            //Instantiate(hitEffect, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }
