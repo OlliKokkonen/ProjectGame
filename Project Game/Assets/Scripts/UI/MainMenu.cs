@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         //start.firstLevel = true;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 5);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
     }
 
     public void QuitGame()
