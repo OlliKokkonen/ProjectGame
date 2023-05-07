@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         //start.firstLevel = true;
+        FindObjectOfType<AudioManager>().Play("Start");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 4);
     }
 

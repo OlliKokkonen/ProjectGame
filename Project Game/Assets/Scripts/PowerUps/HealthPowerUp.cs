@@ -12,6 +12,8 @@ public class HealthPowerUp : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Health Power up picked up!");
+
+            FindObjectOfType<AudioManager>().Play("PowerUp");
             other.gameObject.GetComponent<PlayerHealth>().GainHealth(20);
             Destroy(gameObject);
         }

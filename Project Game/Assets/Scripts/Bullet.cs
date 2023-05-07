@@ -40,6 +40,7 @@ public class Bullet : MonoBehaviour
             }
 
             Instantiate(hitEffect, transform.position, transform.rotation);
+            FindObjectOfType<AudioManager>().Play("Explosion");
             Destroy(gameObject);
         }
 
@@ -48,5 +49,6 @@ public class Bullet : MonoBehaviour
             //Instantiate(hitEffect, transform.position, transform.rotation);
             Destroy(gameObject);
         }
+
     }
 }

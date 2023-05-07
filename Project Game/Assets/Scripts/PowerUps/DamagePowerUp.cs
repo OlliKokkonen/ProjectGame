@@ -14,13 +14,16 @@ public class DamagePowerUp : MonoBehaviour
 
     void Awake()
     {
-        active = bullet.GetComponent<Bullet>();
+        active = bullet.GetComponent<Bullet>(); 
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
+            FindObjectOfType<AudioManager>().Play("PowerUp");
+
             active.extraDamage = true;
             StartCoroutine(Pickup(other));
         }

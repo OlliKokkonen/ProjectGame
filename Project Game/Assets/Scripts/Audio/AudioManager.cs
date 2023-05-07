@@ -1,6 +1,7 @@
 using UnityEngine.Audio;
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -15,9 +16,11 @@ public class AudioManager : MonoBehaviour
             instance = this;
         else
         {
-            DontDestroyOnLoad(gameObject);
+            Destroy(gameObject);
             return;
         }
+
+        DontDestroyOnLoad(gameObject);
 
         foreach (Sound s in sounds)
         {
@@ -32,7 +35,7 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        Play("Main Menu Theme");
+        Play("BattleTheme");
     }
 
     public void Play(string name)

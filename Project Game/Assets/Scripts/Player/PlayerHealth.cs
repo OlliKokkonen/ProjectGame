@@ -66,6 +66,8 @@ public class PlayerHealth : MonoBehaviour
 
             healthBar.SetHealth(currentHealth);
 
+            FindObjectOfType<AudioManager>().Play("Hit");
+
             if (currentHealth <= 0)
             {
                 movement.activeMoveSpeed = 0f;
@@ -73,7 +75,7 @@ public class PlayerHealth : MonoBehaviour
                 isDead = true;
                 animator.SetBool("IsDead", isDead);
 
-                //FindObjectOfType<AudioManager>().Play("Player Death");
+                FindObjectOfType<AudioManager>().Play("Player Death");
 
                 Destroy(gameObject, 3);
                 FindObjectOfType<GameManager>().EndGame();

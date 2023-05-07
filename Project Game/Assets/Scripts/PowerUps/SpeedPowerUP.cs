@@ -13,6 +13,7 @@ public class SpeedPowerUP : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            FindObjectOfType<AudioManager>().Play("PowerUp");
             StartCoroutine(Pickup(other));
         }
     }

@@ -47,13 +47,37 @@ MonoBehaviour:
   sounds:
   - name: Player Death
     clip: {fileID: 8300000, guid: a0b56d43f57091d4b8dd5643fa774b35, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Main Menu Theme
-    clip: {fileID: 8300000, guid: a0b56d43f57091d4b8dd5643fa774b35, type: 3}
-    volume: 0
-    pitch: 0
+  - name: BattleTheme
+    clip: {fileID: 8300000, guid: 32a93410df93bf0498aa935077a308c1, type: 3}
+    volume: 1
+    pitch: 1
     loop: 1
+    source: {fileID: 0}
+  - name: Hit
+    clip: {fileID: 8300000, guid: 7fb36511d845e324dac76a320f8f6a9e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Explosion
+    clip: {fileID: 8300000, guid: 55b798037534f4241bd88fbc7b0be50b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Start
+    clip: {fileID: 8300000, guid: 0080d44718e0d284eb3bc3a83775a8b4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PowerUp
+    clip: {fileID: 8300000, guid: d54f8575d433f6d47b09ab50e5f79264, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
     source: {fileID: 0}
