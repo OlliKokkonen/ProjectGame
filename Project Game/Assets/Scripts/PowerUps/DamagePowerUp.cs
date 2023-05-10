@@ -6,25 +6,17 @@ public class DamagePowerUp : MonoBehaviour
 {
     public GameObject pickupEffect;
 
-    public float multiplier = 1.4f;
-    public float duration = 4f;
+    public int booster = 30;
+    public float duration = 8f;
 
-    Bullet active;
-    [SerializeField] GameObject bullet;
-
-    void Awake()
-    {
-        active = bullet.GetComponent<Bullet>(); 
-        
-    }
+    //GameManager power;
+    EnemyCollision power;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             FindObjectOfType<AudioManager>().Play("PowerUp");
-
-            active.extraDamage = true;
             StartCoroutine(Pickup(other));
         }
     }
@@ -35,12 +27,20 @@ public class DamagePowerUp : MonoBehaviour
 
         //Instantiate(pickupEffect, transform.position, transform.rotation);
 
+        power = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyCollision>();
+        //power = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        power.damage = 50;
+        //power.enemyDamage = 50;
+        Debug.Log("Damage increased");
+
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<Collider2D>().enabled = false;
 
         yield return new WaitForSeconds(duration);
 
-        active.extraDamage = false;
+        power.damage = 20;
+        //power.enemyDamage = 20;
+        Debug.Log("Damage decreased");
 
         Destroy(gameObject);
 

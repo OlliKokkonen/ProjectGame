@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
     bool gameHasEnded = false;
 
     public float restartDelay = 1f;
+
+    public int enemyDamage = 20;
     public void EndGame()
     {
         if (gameHasEnded == false)

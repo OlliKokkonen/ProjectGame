@@ -10,6 +10,8 @@ public class Bullet : MonoBehaviour
 
     public bool extraDamage = false;
 
+
+
     void Update()
     {
         Destroy(gameObject, destroyTime);
@@ -29,16 +31,6 @@ public class Bullet : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            if (extraDamage == true)
-            {
-                other.gameObject.GetComponent<EnemyHealth>().TakeDamage(20);
-            }
-
-            if (extraDamage == false)
-            {
-                other.gameObject.GetComponent<EnemyHealth>().TakeDamage(5);
-            }
-
             Instantiate(hitEffect, transform.position, transform.rotation);
             FindObjectOfType<AudioManager>().Play("Explosion");
             Destroy(gameObject);
