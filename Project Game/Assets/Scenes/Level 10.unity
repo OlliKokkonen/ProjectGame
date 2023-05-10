@@ -1829,6 +1829,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   restartDelay: 1
+  enemyDamage: 20
 --- !u!4 &1106086605
 Transform:
   m_ObjectHideFlags: 0
